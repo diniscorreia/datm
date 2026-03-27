@@ -42,6 +42,10 @@ datm/
 └── ...
 ```
 
+## Plugins
+
+See [PLUGINS.md](PLUGINS.md) for the full list of WordPress plugins used on the site, including notes on two plugins deactivated due to PHP 8 incompatibilities.
+
 ## Credits
 
 Design and development by **Ricardo Duplos** — [@ricardoduplos](https://github.com/ricardoduplos) · [duplos.org](http://duplos.org)
