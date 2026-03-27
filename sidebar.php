@@ -31,33 +31,11 @@
               <h1 class="group-primary-title"><strong>Share this Page</strong></h1>
               
               <ul>
-              	<li class="share-facebook">
-              		<div class="fb-like" data-href="<?php echo urlencode(get_permalink()); ?>" data-send="false" data-layout="box_count" data-width="50" data-show-faces="false" data-font="lucida grande"></div>
-              	</li>
               	<li class="share-twitter">
               		<a href="https://twitter.com/share" class="twitter-share-button" data-via="duskatthemansion" data-count="vertical">Tweet</a>
 									<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 								</li>
-								<li class="share-gplus">
-									<div class="g-plusone" data-size="tall"></div>
-									<script type="text/javascript">
-									  (function() {
-									    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-									    po.src = 'https://apis.google.com/js/plusone.js';
-									    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-									  })();
-									</script>
-								</li>
-								<li class="share-stumbleupon">
-									<su:badge layout="5"></su:badge>
-									<script type="text/javascript"> 
-									 (function() { 
-									     var li = document.createElement('script'); li.type = 'text/javascript'; li.async = true; 
-									     li.src = window.location.protocol + '//platform.stumbleupon.com/1/widgets.js'; 
-									     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(li, s); 
-										})(); 
-									</script>
-								</li>
+								<!-- Facebook Like, Google+, and StumbleUpon widgets removed — all three services are defunct or no longer support these embed APIs -->
               </ul>
               
             </section>

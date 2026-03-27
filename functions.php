@@ -1499,4 +1499,45 @@ function datm_soundcloud_shortcode( $atts ) {
 }
 add_shortcode( 'soundcloud', 'datm_soundcloud_shortcode' );
 
+
+/**
+ * Flickr shortcodes — replacement for the abandoned Flickr Gallery plugin.
+ *
+ * [flickr]https://www.flickr.com/photos/user/PHOTO_ID/[/flickr]
+ *   Embeds a single Flickr photo via oEmbed (no API key required).
+ *
+ * [flickr-gallery mode="photoset" photoset="PHOTOSET_ID"]
+ *   Embeds a Flickr photoset via oEmbed, falling back to Flickr's
+ *   slideshow player. The 'user' attribute defaults to 'duskatthemansion'.
+ */
+function datm_flickr_shortcode( $atts, $content = '' ) {
+	$content = trim( $content );
+	if ( empty( $content ) ) return '';
+
+	$embed = wp_oembed_get( $content );
+	if ( $embed ) return '<div class="flickr-embed">' . $embed . '</div>';
+
+	return '<p><a href="' . esc_url( $content ) . '" target="_blank" rel="noopener">View photo on Flickr</a></p>';
+}
+add_shortcode( 'flickr', 'datm_flickr_shortcode' );
+
+function datm_flickr_gallery_shortcode( $atts ) {
+	$atts = shortcode_atts( array(
+		'mode'     => 'photoset',
+		'photoset' => '',
+		'user'     => 'duskatthemansion',
+	), $atts );
+
+	if ( empty( $atts['photoset'] ) ) return '';
+
+	$album_url = 'https://www.flickr.com/photos/' . $atts['user'] . '/sets/' . $atts['photoset'] . '/';
+	$embed = wp_oembed_get( $album_url );
+	if ( $embed ) return '<div class="flickr-gallery-embed">' . $embed . '</div>';
+
+	// Fallback: Flickr's embeddable slideshow player
+	$player_url = $album_url . 'player/';
+	return '<div class="flickr-gallery-embed"><iframe src="' . esc_url( $player_url ) . '" width="100%" height="500" frameborder="0" allowfullscreen></iframe></div>';
+}
+add_shortcode( 'flickr-gallery', 'datm_flickr_gallery_shortcode' );
+
 ?>
