@@ -1472,4 +1472,31 @@ function wpfbogp_fix_excerpts_exist() {
 	remove_filter('get_the_excerpt','twentyeleven_custom_excerpt_more');
 }
 
+
+/**
+ * SoundCloud embed shortcode — replacement for the abandoned soundcloud-is-gold plugin.
+ *
+ * Usage: [soundcloud id='TRACK_ID']
+ *        [soundcloud id='SET_ID' format='set']
+ *
+ * The 'id' attribute is the numeric SoundCloud track or playlist ID.
+ * The 'format' attribute defaults to 'tracks'; use 'set' for playlists.
+ */
+function datm_soundcloud_shortcode( $atts ) {
+	$atts = shortcode_atts( array(
+		'id'     => '',
+		'format' => 'tracks',
+		'width'  => '100%',
+	), $atts );
+
+	if ( empty( $atts['id'] ) ) return '';
+
+	$type   = ( $atts['format'] === 'set' ) ? 'playlists' : 'tracks';
+	$height = ( $atts['format'] === 'set' ) ? 450 : 166;
+	$url    = 'https://w.soundcloud.com/player/?url=' . rawurlencode( 'https://api.soundcloud.com/' . $type . '/' . $atts['id'] ) . '&auto_play=false&show_artwork=true&visual=false';
+
+	return '<iframe width="' . esc_attr( $atts['width'] ) . '" height="' . $height . '" scrolling="no" frameborder="no" allow="autoplay" src="' . esc_url( $url ) . '"></iframe>';
+}
+add_shortcode( 'soundcloud', 'datm_soundcloud_shortcode' );
+
 ?>

@@ -94,16 +94,17 @@
             <?php endif; wp_reset_query(); ?>
             <?php endif; ?>
             
+            <?php /*
+            Twitter/X no longer supports unauthenticated timeline embeds. Widget removed.
             <?php if(!is_page('press') & 'datm_press' != get_post_type()) : ?>
             <!-- latest-tweets -->
             <section id="latest-tweets" class="group minor" data-username="fallingdusk" data-count="3">
-              
               <h1 class="group-primary-title"><strong>Latest Tweets</strong> <a href="http://twitter.com/fallingdusk" title="Dusk at the Mansion on Twitter" class="global-more-bttn">All</a></h1>
               <div class="item-list-wrapper"></div>
-              
             </section>
             <!-- /latest-tweets -->
             <?php endif; ?>
+            */ ?>
             
             <?php if('datm_press' == get_post_type() && is_single() ) : ?>
             <!-- press-info -->

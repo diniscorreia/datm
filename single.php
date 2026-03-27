@@ -28,10 +28,13 @@
     					</footer>
         		</article>
         		
+        		<?php /*
+        		Facebook Comments removed — fbcomments shortcode no longer works.
         		<aside class="item-comments">
       				<h1 class="group-primary-title"><strong>Comments</strong></h1>
       				<?php echo do_shortcode('[fbcomments width="580" count="off" num="4" title=""]'); ?>
           	</aside>
+          	*/ ?>
           	
           	<footer>
 		        	<nav id="inner-nav-wrapper" role="navigation">
