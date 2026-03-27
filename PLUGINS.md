@@ -18,15 +18,19 @@ Versions reflect the state of the site as of March 2026.
 | [Regenerate Thumbnails](https://wordpress.org/plugins/regenerate-thumbnails/) | 3.1.6 | Utility — not required at runtime |
 | [Replace Content Image Size](https://wordpress.org/plugins/replace-content-image-size/) | — | Image size handling in post content |
 | [Simple Image Sizes](https://wordpress.org/plugins/simple-image-sizes/) | 3.2.4 | Registers custom image sizes used by the theme |
+| [Merge Tags](https://wordpress.org/plugins/merge-tags/) | 1.2 ⚠️ | Tag merging utility — abandonware (last updated 2010), patched for PHP 8 compatibility (see below) |
 | [Taxonomic SEO Permalinks](https://wordpress.org/plugins/taxonomic-seo-permalinks/) | — | SEO-friendly permalink structure |
 | [W3 Total Cache](https://wordpress.org/plugins/w3-total-cache/) | 2.9.3 | Page caching |
 | [YouTube Embed](https://wordpress.org/plugins/youtube-embed/) | 5.4 | Video embeds in the Music section |
 
+### Merge Tags — PHP 8 patch
+
+The plugin is abandonware and will not receive upstream updates. In March 2026 all four methods in the `Merge_Tags` class (`init`, `handler`, `notice`, `script`) were declared `static` to fix a fatal error introduced by PHP 8's strict enforcement of static method calls. No logic was changed.
+
 ## Deactivated
 
-These plugins were deactivated in March 2026 due to PHP 8 incompatibilities.
+These plugins were deactivated in March 2026 due to PHP 8 incompatibilities and have no available fix.
 
 | Plugin | Reason |
 |--------|--------|
-| Merge Tags | Fatal error: non-static method called statically (`create_function` equivalent issue) |
-| SoundCloud is Gold | Fatal error: `create_function()` removed in PHP 8.0 |
+| SoundCloud is Gold | Fatal error: `create_function()` removed in PHP 8.0 — plugin abandoned |
